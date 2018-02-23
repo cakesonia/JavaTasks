@@ -12,30 +12,30 @@ import ua.lviv.iot.decor.enums.TypeOfDecorations;
  */
 public class Decoration {
 
-	private String decorType;
+	private String decorationPlace;
 	private TypeOfDecorations typeOfDecorations;
 
-	public Decoration(String decorType) {
+	public Decoration(String decorationPlace) {
 		super();
-		this.decorType = decorType;
+		this.decorationPlace = decorationPlace;
 	}
 
-	public Decoration(String decorType, TypeOfDecorations typeOfDecorations) {
+	public Decoration(String decorationPlace, TypeOfDecorations typeOfDecorations) {
 		super();
-		this.decorType = decorType;
+		this.decorationPlace = decorationPlace;
 		this.typeOfDecorations = typeOfDecorations;
 	}
 
-	public String getDecorType() {
-		return decorType;
+	public String getDecorationPlace() {
+		return decorationPlace;
 	}
 
 	public TypeOfDecorations getTypeOfDecorations() {
 		return typeOfDecorations;
 	}
 
-	public void setDecorType(String decorType) {
-		this.decorType = decorType;
+	public void setDecorationPlace(String decorationPlace) {
+		this.decorationPlace = decorationPlace;
 	}
 
 	public void setTypeOfDecorations(TypeOfDecorations typeOfDecorations) {

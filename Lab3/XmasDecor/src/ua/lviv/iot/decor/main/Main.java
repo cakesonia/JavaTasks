@@ -28,21 +28,16 @@ public class Main {
 	public static void main(String[] args) {
 		NewYearFairManager kate = new NewYearFairManager();
 
-		Decoration objGarland = new Garland("House", 3, Color.BLUE);
-		Decoration objLighting = new Lighting("Yard", 2, 150);
-		Decoration objToys = new Toys("Xmas Tree", TypeOfToys.ANGELS, MaterialOfToys.PAPER);
-		Decoration objWreath = new Wreath("House", 50, MaterialOfWreath.BRANCHES);
+		kate.addDecoration(new Garland("House", 3, Color.BLUE));
+		kate.addDecoration(new Lighting("Yard", 2, 150));
+		kate.addDecoration(new Toys("Xmas Tree", TypeOfToys.ANGELS, MaterialOfToys.PAPER));
+		kate.addDecoration(new Wreath("House", 50, MaterialOfWreath.BRANCHES));
 
-		kate.getDecorations().add(objGarland);
-		kate.getDecorations().add(objLighting);
-		kate.getDecorations().add(objToys);
-		kate.getDecorations().add(objWreath);
-
-		LinkedList<String> someType = new LinkedList<String>();
+		List<String> someType = new LinkedList<>();
 		someType.add("House");
 		someType.add("Yard");
 
-		List<Decoration> arrayList = kate.searchByDecorType(someType);
+		List<Decoration> arrayList = kate.searchByDecorationPlace(someType);
 		System.out.println("Find by decoration for " + someType);
 		System.out.println(arrayList);
 		/* System.out.println(kate.getDecorations()); */

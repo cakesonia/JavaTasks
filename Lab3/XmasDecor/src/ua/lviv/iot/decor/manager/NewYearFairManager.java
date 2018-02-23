@@ -10,6 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import ua.lviv.iot.decor.decorations.Decoration;
+import ua.lviv.iot.decor.decorations.Garland;
 
 /**
  * @author Sonia
@@ -21,7 +22,7 @@ public class NewYearFairManager {
 
 		@Override
 		public int compare(Decoration decor0, Decoration decor1) {
-			return decor0.getDecorType().compareTo(decor1.getDecorType());
+			return decor0.getDecorationPlace().compareTo(decor1.getDecorationPlace());
 		}
 	}
 
@@ -65,15 +66,15 @@ public class NewYearFairManager {
 	 * @param decorTypes
 	 * @return
 	 */
-	public List<Decoration> searchByDecorType(List<String> decorTypes) {
-		for (int i = 0; i < decorations.size(); i++) {
+	public List<Decoration> searchByDecorationPlace(List<String> decorationPlaces) {
+		for (Decoration decoration : decorations) {
 			/*
 			 * if (decorations.get(i).getDecorType().equalsIgnoreCase(decorType)) {
 			 * parameterDecorationsList.add(decorations.get(i)); }
 			 */
-			for (String string : decorTypes) {
-				if (decorations.get(i).getDecorType().equalsIgnoreCase(string)) {
-					parameterDecorationsList.add(decorations.get(i));
+			for (String string : decorationPlaces) {
+				if (decoration.getDecorationPlace().equalsIgnoreCase(string)) {
+					parameterDecorationsList.add(decoration);
 				}
 			}
 		}
@@ -88,9 +89,9 @@ public class NewYearFairManager {
 	 * @return decorations list with found decorations
 	 */
 	public List<Decoration> searchByDecorType(String decorType) {
-		for (int i = 0; i < decorations.size(); i++) {
-			if (decorations.get(i).getDecorType().equalsIgnoreCase(decorType)) {
-				parameterDecorationsList.add(decorations.get(i));
+		for (Decoration decoration : decorations) {
+			if (decoration.getDecorationPlace().equalsIgnoreCase(decorType)) {
+				parameterDecorationsList.add(decoration);
 			}
 		}
 		return parameterDecorationsList;
@@ -107,6 +108,11 @@ public class NewYearFairManager {
 	public void sortByDecorType() {
 
 		Collections.sort(decorations, new DecorTypeComparator());
+	}
+
+	public void addDecoration(Decoration decoration) {
+		this.decorations.add(decoration);
+		
 	}
 
 }
