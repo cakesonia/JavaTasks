@@ -4,6 +4,7 @@
 package ua.lviv.iot.decor.decorations;
 
 import ua.lviv.iot.decor.enums.MaterialOfToys;
+import ua.lviv.iot.decor.enums.TypeOfDecorations;
 import ua.lviv.iot.decor.enums.TypeOfToys;
 
 /**
@@ -20,10 +21,14 @@ public class Toys extends Decoration {
 		super(decorType);
 	}
 
+	public Toys(String decorType, TypeOfDecorations typeOfDecorations) {
+		super(decorType, typeOfDecorations);
+	}
+
 	public Toys(String decorType, TypeOfToys typeOfToys, MaterialOfToys materialOfToys) {
-		super(decorType);
+		super(decorType, TypeOfDecorations.TOYS);
 		this.setMaterialOfToys(materialOfToys);
-        this.setTypeOfToys(typeOfToys);	
+		this.setTypeOfToys(typeOfToys);
 	}
 
 	public MaterialOfToys getMaterialOfToys() {

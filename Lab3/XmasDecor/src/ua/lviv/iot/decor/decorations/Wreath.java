@@ -4,6 +4,7 @@
 package ua.lviv.iot.decor.decorations;
 
 import ua.lviv.iot.decor.enums.MaterialOfWreath;
+import ua.lviv.iot.decor.enums.TypeOfDecorations;
 
 /**
  * @author Sonia
@@ -11,7 +12,7 @@ import ua.lviv.iot.decor.enums.MaterialOfWreath;
  * @since 2018-02-22
  */
 public class Wreath extends Decoration {
-	
+
 	private MaterialOfWreath materialOfWreath;
 	private int radius;
 
@@ -20,9 +21,13 @@ public class Wreath extends Decoration {
 	}
 
 	public Wreath(String decorType, int radius, MaterialOfWreath materialOfWreath) {
-		super(decorType);
+		super(decorType, TypeOfDecorations.WREATH);
 		this.radius = radius;
 		this.materialOfWreath = materialOfWreath;
+	}
+
+	public Wreath(String decorType, TypeOfDecorations typeOfDecorations) {
+		super(decorType, typeOfDecorations);
 	}
 
 	public MaterialOfWreath getMaterialOfWreath() {

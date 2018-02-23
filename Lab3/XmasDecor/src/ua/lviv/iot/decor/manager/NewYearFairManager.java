@@ -108,4 +108,5 @@ public class NewYearFairManager {
 
 		Collections.sort(decorations, new DecorTypeComparator());
 	}
+
 }

@@ -3,6 +3,8 @@
  */
 package ua.lviv.iot.decor.decorations;
 
+import ua.lviv.iot.decor.enums.TypeOfDecorations;
+
 /**
  * @author Sonia
  * @version 1.0
@@ -18,9 +20,13 @@ public class Lighting extends Decoration {
 	}
 
 	public Lighting(String decorType, int lenght, int quantityOfLamps) {
-		super(decorType);
+		super(decorType, TypeOfDecorations.LIGHTING);
 		this.lenght = lenght;
 		this.quantityOfLamps = quantityOfLamps;
+	}
+
+	public Lighting(String decorType, TypeOfDecorations typeOfDecorations) {
+		super(decorType, typeOfDecorations);
 	}
 
 	public int getLenght() {

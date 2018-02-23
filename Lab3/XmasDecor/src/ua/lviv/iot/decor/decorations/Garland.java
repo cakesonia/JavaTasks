@@ -4,6 +4,7 @@
 package ua.lviv.iot.decor.decorations;
 
 import ua.lviv.iot.decor.enums.Color;
+import ua.lviv.iot.decor.enums.TypeOfDecorations;
 
 /**
  * @author Sonia
@@ -13,22 +14,20 @@ import ua.lviv.iot.decor.enums.Color;
 public class Garland extends Decoration {
 
 	private Color color;
-
 	private int length;
 
 	public Garland(String decorType) {
 		super(decorType);
 	}
 
-	public Garland(String decorType, Color color, int length) {
-		super(decorType);
+	public Garland(String decorType, int length, Color color) {
+		super(decorType, TypeOfDecorations.GARLAND);
 		this.color = color;
 		this.length = length;
 	}
 
-	public Garland(String decorType, int length, Color color) {
-		super(decorType);
-		this.length = length;
+	public Garland(String decorType, TypeOfDecorations typeOfDecorations) {
+		super(decorType, typeOfDecorations);
 	}
 
 	public Color getColor() {
