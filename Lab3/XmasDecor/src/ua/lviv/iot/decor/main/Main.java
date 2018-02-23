@@ -28,7 +28,7 @@ public class Main {
 	public static void main(String[] args) {
 		NewYearFairManager kate = new NewYearFairManager();
 
-		Decoration objGarland = new Garland("Yard", 3, Color.BLUE);
+		Decoration objGarland = new Garland("House", 3, Color.BLUE);
 		Decoration objLighting = new Lighting("Yard", 2, 150);
 		Decoration objToys = new Toys("Xmas Tree", TypeOfToys.ANGELS, MaterialOfToys.PAPER);
 		Decoration objWreath = new Wreath("House", 50, MaterialOfWreath.BRANCHES);
@@ -39,10 +39,11 @@ public class Main {
 		kate.getDecorations().add(objWreath);
 
 		LinkedList<String> someType = new LinkedList<String>();
-		someType.add("Xmas Tree");
+		someType.add("House");
 		someType.add("Yard");
 
 		List<Decoration> arrayList = kate.searchByDecorType(someType);
+		System.out.println("Find by decoration for " + someType);
 		System.out.println(arrayList);
 		/* System.out.println(kate.getDecorations()); */
 	}
