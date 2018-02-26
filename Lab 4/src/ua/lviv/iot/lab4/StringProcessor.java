@@ -27,7 +27,7 @@ public class StringProcessor {
 	public static String processText(String inputText) {
 		// convert input string to char array
 		inputText = inputText.toLowerCase();
-		String[] items = inputText.split(" ");
+		String[] items = inputText.split("\\W{0,1}\\s");
 		List<String> itemList = Arrays.asList(items);
          
         // sort tempArray
@@ -38,6 +38,7 @@ public class StringProcessor {
 	
 	// add implementation here
 	public void showResult(String resultText /* or pass your class instance as parameter */) {
+		
 		System.out.println("\nYour string:\n" + resultText);
 	} 
 
