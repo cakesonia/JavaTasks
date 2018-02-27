@@ -21,19 +21,19 @@ public class StringProcessor {
 	public static String processText(String inputText) {
 		inputText = inputText.toLowerCase();
 		String[] items = inputText.split("\\W{0,1}\\s");
-		List<String> itemList =Arrays.asList(items);
+		List<String> itemList = Arrays.asList(items);
 		Collections.sort(itemList);
-		String result=new String();
+		String result = new String();
 		char k = items[0].charAt(0);
 		for (String string : itemList) {
 			if (string.charAt(0) != k) {
 				k = string.charAt(0);
-				result=result+"\n"+string+" ";				
-			}else {
-				result=result+string+" ";
+				result = result + "\n" + string + " ";
+			} else {
+				result = result + string + " ";
 			}
 		}
-//		
+		//
 		return result;
 	}
 
