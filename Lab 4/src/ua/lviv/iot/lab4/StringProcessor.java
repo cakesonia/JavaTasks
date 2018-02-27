@@ -33,7 +33,6 @@ public class StringProcessor {
 				result = result + string + " ";
 			}
 		}
-		//
 		return result;
 	}
 
