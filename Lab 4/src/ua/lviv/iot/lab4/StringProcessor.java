@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -24,10 +23,10 @@ public class StringProcessor {
 		List<String> itemList = Arrays.asList(items);
 		Collections.sort(itemList);
 		String result = new String();
-		char k = items[0].charAt(0);
+		char firstLetterInWord = items[0].charAt(0);
 		for (String string : itemList) {
-			if (string.charAt(0) != k) {
-				k = string.charAt(0);
+			if (string.charAt(0) != firstLetterInWord) {
+				firstLetterInWord = string.charAt(0);
 				result = result + "\n" + string + " ";
 			} else {
 				result = result + string + " ";
