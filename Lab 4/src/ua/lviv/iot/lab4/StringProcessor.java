@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -20,10 +21,20 @@ public class StringProcessor {
 	public static String processText(String inputText) {
 		inputText = inputText.toLowerCase();
 		String[] items = inputText.split("\\W{0,1}\\s");
-		List<String> itemList = Arrays.asList(items);
+		List<String> itemList =Arrays.asList(items);
 		Collections.sort(itemList);
-
-		return itemList.toString();
+		String result=new String();
+		char k = items[0].charAt(0);
+		for (String string : itemList) {
+			if (string.charAt(0) != k) {
+				k = string.charAt(0);
+				result=result+"\n"+string+" ";				
+			}else {
+				result=result+string+" ";
+			}
+		}
+//		
+		return result;
 	}
 
 	public String readInputText() throws IOException {
@@ -35,7 +46,6 @@ public class StringProcessor {
 
 	// add implementation here
 	public void showResult(String resultText) {
-
 		System.out.println("\nYour string:\n" + resultText);
 	}
 
