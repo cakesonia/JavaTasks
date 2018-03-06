@@ -19,8 +19,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 class NewYearFairManagerTest {
     static NewYearFairManager manager;
-    Lighting lighting;
-    private List<Decoration> testList = new LinkedList<>();
     private static Decoration decor = new Toys("DecorationPlace", TypeOfDecorations.TOYS,
             Color.YELLOW, MaterialOfToys.GLASS, TypeOfToys.ROUND);
     private static Decoration decor1 = new Garland("DecorationPlace1", TypeOfDecorations.GARLAND,
@@ -29,9 +27,11 @@ class NewYearFairManagerTest {
             Color.BLUE, 8, 55);
     private static Decoration decor3 = new Wreath("DecorationPlace3", TypeOfDecorations.WREATH,
             Color.GREEN, MaterialOfWreath.CONES, 0.5);
+    Lighting lighting;
+    private List<Decoration> testList = new LinkedList<>();
 
     @BeforeAll
-    static void addDecorationsForTest(){
+    static void addDecorationsForTest() {
         manager = new NewYearFairManager();
         manager.addDecoration(decor);
         manager.addDecoration(decor1);
