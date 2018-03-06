@@ -6,6 +6,11 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * @author Sonia
+ * @version 3.0
+ * @since 2018-03-06
+ */
 public class NewYearFairManager {
     private List<Decoration> decorations = new LinkedList<>();
 

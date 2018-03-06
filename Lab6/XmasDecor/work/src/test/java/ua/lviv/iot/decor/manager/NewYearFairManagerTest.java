@@ -12,6 +12,11 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * @author Sonia
+ * @version 1.2
+ * @since 2018-03-06
+ */
 class NewYearFairManagerTest {
     static NewYearFairManager manager;
     Lighting lighting;

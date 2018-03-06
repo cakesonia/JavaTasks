@@ -4,8 +4,8 @@ import ua.lviv.iot.decor.enums.TypeOfDecorations;
 
 /**
  * @author Sonia
- * @version 1.0
- * @since 2018-02-22
+ * @version 3.0
+ * @since 2018-03-06
  */
 public class Decoration {
     private String decorationPlace;
