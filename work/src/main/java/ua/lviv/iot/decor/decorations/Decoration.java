@@ -4,17 +4,12 @@ import ua.lviv.iot.decor.enums.TypeOfDecorations;
 
 /**
  * @author Sonia
- * @version 1.0
- * @since 2018-02-22
+ * @version 3.0
+ * @since 2018-03-06
  */
 public class Decoration {
     private String decorationPlace;
     private TypeOfDecorations typeOfDecorations;
-
-    Decoration(final String decorationPlace) {
-        super();
-        this.decorationPlace = decorationPlace;
-    }
 
     Decoration(final String decorationPlace, final TypeOfDecorations typeOfDecorations) {
         super();
@@ -25,9 +20,4 @@ public class Decoration {
     public final String getDecorationPlace() {
         return decorationPlace;
     }
-
-    public final String toString() {
-        return typeOfDecorations + "";
-    }
-
 }
