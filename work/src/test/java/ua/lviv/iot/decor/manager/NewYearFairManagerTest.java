@@ -6,11 +6,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ua.lviv.iot.decor.decorations.*;
 import ua.lviv.iot.decor.enums.*;
+import ua.lviv.iot.decor.writer.DecorationsWriter;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Sonia
@@ -18,16 +22,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @since 2018-03-06
  */
 class NewYearFairManagerTest {
-    static NewYearFairManager manager;
-    private static Decoration decor = new Toys("DecorationPlace", TypeOfDecorations.TOYS,
-            Color.YELLOW, MaterialOfToys.GLASS, TypeOfToys.ROUND);
-    private static Decoration decor1 = new Garland("DecorationPlace1", TypeOfDecorations.GARLAND,
-            Color.RED, 10);
-    private static Decoration decor2 = new Lighting("DecorationPlace2", TypeOfDecorations.LIGHTING,
-            Color.BLUE, 8, 55);
-    private static Decoration decor3 = new Wreath("DecorationPlace3", TypeOfDecorations.WREATH,
-            Color.GREEN, MaterialOfWreath.CONES, 0.5);
-    Lighting lighting;
+    private static NewYearFairManager manager;
+    private static Decoration decor = new Toys("DecorationPlace",
+            TypeOfDecorations.TOYS, Color.YELLOW, MaterialOfToys.GLASS, TypeOfToys.ROUND);
+    private static Decoration decor1 = new Garland("DecorationPlace1",
+            TypeOfDecorations.GARLAND, Color.RED, 10);
+    private static Decoration decor2 = new Lighting("DecorationPlace2",
+            TypeOfDecorations.LIGHTING, Color.BLUE, 8, 55);
+    private static Decoration decor3 = new Wreath("DecorationPlace3",
+            TypeOfDecorations.WREATH, Color.GREEN, MaterialOfWreath.CONES, 0.5);
+    private Lighting lighting;
     private List<Decoration> testList = new LinkedList<>();
 
     @BeforeAll
@@ -51,8 +55,7 @@ class NewYearFairManagerTest {
     void addDecoration() {
         NewYearFairManager testManager = new NewYearFairManager();
         testManager.addDecoration(lighting);
-        assertEquals(lighting, testManager.getDecorations().get(0));
-
+        assertEquals(lighting, testManager.getDecorationList().get(0));
     }
 
     @Test
@@ -72,11 +75,23 @@ class NewYearFairManagerTest {
 
     @Test
     void sortByDecorType() {
-        testList = manager.sortByDecorType(manager.getDecorations());
+        testList = manager.sortByDecorationPlace(manager.getDecorationList());
         assertEquals(4, testList.size());
         assertEquals(decor.getDecorationPlace(), testList.get(0).getDecorationPlace());
         assertEquals(decor1.getDecorationPlace(), testList.get(1).getDecorationPlace());
         assertEquals(decor2.getDecorationPlace(), testList.get(2).getDecorationPlace());
         assertEquals(decor3.getDecorationPlace(), testList.get(3).getDecorationPlace());
+    }
+
+    @Test
+    void writeToFile() {
+        try {
+            DecorationsWriter decorationsWriter = new DecorationsWriter();
+            decorationsWriter.writeToFile(manager.getDecorationList());
+        } catch (IOException e) {
+            assertTrue(false);
+        }
+        File file = new File("E:\\IdeaProjects\\decoration.csv");
+        assertEquals(true, file.exists());
     }
 }

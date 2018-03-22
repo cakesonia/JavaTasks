@@ -1,5 +1,6 @@
 package ua.lviv.iot.decor.decorations;
 
+import ua.lviv.iot.decor.enums.Color;
 import ua.lviv.iot.decor.enums.TypeOfDecorations;
 
 /**
@@ -10,14 +11,24 @@ import ua.lviv.iot.decor.enums.TypeOfDecorations;
 public class Decoration {
     private String decorationPlace;
     private TypeOfDecorations typeOfDecorations;
+    private Color color;
 
-    Decoration(final String decorationPlace, final TypeOfDecorations typeOfDecorations) {
+    Decoration(final String decorationPlace, final TypeOfDecorations typeOfDecorations, final Color color) {
         super();
         this.decorationPlace = decorationPlace;
         this.typeOfDecorations = typeOfDecorations;
+        this.color = color;
     }
 
     public final String getDecorationPlace() {
         return decorationPlace;
+    }
+
+    public String getHeaders() {
+        return "decoration place, " + "type of decorations, " + " color, ";
+    }
+
+    public String toCSV() {
+        return decorationPlace + "," + typeOfDecorations + "," + color + ",";
     }
 }

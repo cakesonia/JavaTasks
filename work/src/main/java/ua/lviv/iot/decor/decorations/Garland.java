@@ -10,11 +10,22 @@ import ua.lviv.iot.decor.enums.TypeOfDecorations;
  */
 public class Garland extends Decoration {
 
-    private int length = 10;
+    private int length;
 
-    public Garland(String decorationPlace, TypeOfDecorations typeOfDecorations, Color color, int length) {
-        super(decorationPlace, TypeOfDecorations.GARLAND);
+    public Garland(final String decorationPlace, final TypeOfDecorations typeOfDecorations, final Color color,
+                   final int length) {
+        super(decorationPlace, TypeOfDecorations.GARLAND, Color.RED);
         this.length = length;
+    }
+
+    @Override
+    public String getHeaders() {
+        return super.getHeaders() + "length";
+    }
+
+    @Override
+    public String toCSV() {
+        return super.toCSV() + length;
     }
 
     /*public String toString() {

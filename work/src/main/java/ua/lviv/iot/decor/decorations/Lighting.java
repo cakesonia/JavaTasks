@@ -13,11 +13,21 @@ public class Lighting extends Decoration {
     private int length;
     private int quantityOfLamps;
 
-    public Lighting(final String decorationPlace, TypeOfDecorations typeOfDecorations, Color color, int length,
-                    int quantityOfLamps) {
-        super(decorationPlace, TypeOfDecorations.LIGHTING);
+    public Lighting(final String decorationPlace, final TypeOfDecorations typeOfDecorations,
+                    final Color color, final int length, final int quantityOfLamps) {
+        super(decorationPlace, TypeOfDecorations.LIGHTING, Color.BLUE);
         this.quantityOfLamps = quantityOfLamps;
         this.length = length;
+    }
+
+    @Override
+    public String getHeaders() {
+        return super.getHeaders() + "length, " + "quantity of lamps";
+    }
+
+    @Override
+    public String toCSV() {
+        return super.toCSV() + length + "," + quantityOfLamps;
     }
 
     /*public String toString() {

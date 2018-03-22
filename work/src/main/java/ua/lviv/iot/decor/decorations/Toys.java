@@ -12,9 +12,24 @@ import ua.lviv.iot.decor.enums.TypeOfToys;
  */
 public class Toys extends Decoration {
 
-    public Toys(final String decorationPlace, TypeOfDecorations typeOfDecorations, Color color,
-                MaterialOfToys materialOfToys, TypeOfToys typeOfToys) {
-        super(decorationPlace, TypeOfDecorations.TOYS);
+    private MaterialOfToys materialOfToys;
+    private TypeOfToys typeOfToys;
+
+    public Toys(final String decorationPlace, final TypeOfDecorations typeOfDecorations, final Color color,
+                final MaterialOfToys materialOfToys, final TypeOfToys typeOfToys) {
+        super(decorationPlace, TypeOfDecorations.TOYS, Color.YELLOW);
+        this.materialOfToys = materialOfToys;
+        this.typeOfToys = typeOfToys;
+    }
+
+    @Override
+    public String getHeaders() {
+        return super.getHeaders() + "material of toys, " + "type of toys";
+    }
+
+    @Override
+    public String toCSV() {
+        return super.toCSV() + materialOfToys + "," + typeOfToys;
     }
 
     /*public String toString() {

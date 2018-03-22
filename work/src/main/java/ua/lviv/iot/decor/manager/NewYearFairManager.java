@@ -12,29 +12,35 @@ import java.util.List;
  * @since 2018-03-06
  */
 public class NewYearFairManager {
-    private List<Decoration> decorations = new LinkedList<>();
+    private List<Decoration> decorationList = new LinkedList<>();
+
 
     public NewYearFairManager() {
     }
 
-    public List<Decoration> getDecorations() {
-        return decorations;
-    }
-
-    public void addDecoration(Decoration decoration) {
-        this.decorations.add(decoration);
+    public final List<Decoration> getDecorationList() {
+        return decorationList;
     }
 
     /**
-     * Search decorations by type of decoration
+     * Add decoration to decoration's list
      *
-     * @param decorationPlaces is type of decoration
-     * @return decorations list with found decorations
+     * @param decoration object of the parent class of all decorations
+     */
+    public final void addDecoration(final Decoration decoration) {
+        this.decorationList.add(decoration);
+    }
+
+    /**
+     * Search decorations by decoration place
+     *
+     * @param decorationPlaces is places which can be decorated by decorations
+     * @return list with found decorations
      */
 
-    public List<Decoration> searchByDecorationPlace(final String decorationPlaces) {
+    public final List<Decoration> searchByDecorationPlace(final String decorationPlaces) {
         List<Decoration> resultList = new LinkedList<>();
-        for (Decoration decoration : decorations) {
+        for (Decoration decoration : decorationList) {
             if (decoration.getDecorationPlace().equalsIgnoreCase(decorationPlaces)) {
                 resultList.add(decoration);
             }
@@ -42,8 +48,14 @@ public class NewYearFairManager {
         return resultList;
     }
 
-    public final List<Decoration> sortByDecorType(final List<Decoration> parameterDecorationsList) {
-        parameterDecorationsList.sort(Comparator.comparing(Decoration::getDecorationPlace));
-        return parameterDecorationsList;
+    /**
+     * Sort decoration by decoration place
+     *
+     * @param resultList is list with found decorations
+     * @return list with found and sorted decorations
+     */
+    public final List<Decoration> sortByDecorationPlace(final List<Decoration> resultList) {
+        resultList.sort(Comparator.comparing(Decoration::getDecorationPlace));
+        return resultList;
     }
 }

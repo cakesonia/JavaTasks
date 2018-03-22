@@ -11,12 +11,24 @@ import ua.lviv.iot.decor.enums.TypeOfDecorations;
  */
 public class Wreath extends Decoration {
 
-    private double radius;
+    private double radius = 0.5;
+    private MaterialOfWreath materialOfWreath;
 
     public Wreath(final String decorationPlace, final TypeOfDecorations typeOfDecorations, final Color color,
                   final MaterialOfWreath materialOfWreath, final double radius) {
-        super(decorationPlace, TypeOfDecorations.WREATH);
+        super(decorationPlace, TypeOfDecorations.WREATH, Color.GREEN);
         this.radius = radius;
+        this.materialOfWreath = materialOfWreath;
+    }
+
+    @Override
+    public String getHeaders() {
+        return super.getHeaders() + "material of wreath, " + "radius";
+    }
+
+    @Override
+    public String toCSV() {
+        return super.toCSV() + materialOfWreath + "," + radius;
     }
 
     /*public String toString() {
