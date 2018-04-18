@@ -14,9 +14,9 @@ public class Wreath extends Decoration {
     private double radius = 0.5;
     private MaterialOfWreath materialOfWreath;
 
-    public Wreath(final String decorationPlace, final TypeOfDecorations typeOfDecorations, final Color color,
+    public Wreath(final Integer id, final String decorationPlace, final TypeOfDecorations typeOfDecorations, final Color color,
                   final MaterialOfWreath materialOfWreath, final double radius) {
-        super(decorationPlace, TypeOfDecorations.WREATH, Color.GREEN);
+        super(id, decorationPlace, TypeOfDecorations.WREATH, Color.GREEN);
         this.radius = radius;
         this.materialOfWreath = materialOfWreath;
     }

@@ -1,59 +1,66 @@
 package ua.lviv.iot.decor.manager;
 
 import ua.lviv.iot.decor.decorations.Decoration;
+import ua.lviv.iot.decor.persistence.dao.DecorationDao;
 
+import javax.enterprise.context.Dependent;
+import java.io.Serializable;
 import java.util.Comparator;
-import java.util.LinkedList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Sonia
  * @version 3.0
  * @since 2018-03-06
  */
-public class NewYearFairManager {
-    private List<Decoration> decorationList = new LinkedList<>();
 
+public class NewYearFairManager implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    public DecorationDao decorationDao;
+
+    private static Map<Integer, Decoration> decorationMap = new HashMap<>();
 
     public NewYearFairManager() {
     }
 
-    public final List<Decoration> getDecorationList() {
-        return decorationList;
+    public Map<Integer, Decoration> getDecorationMap() {
+        return decorationMap;
     }
 
-    /**
-     * Add decoration to decoration's list
-     *
-     * @param decoration object of the parent class of all decorations
-     */
-    public final void addDecoration(final Decoration decoration) {
-        this.decorationList.add(decoration);
+    public void setDecorationMap(Map<Integer, Decoration> decorationList) {
+        NewYearFairManager.decorationMap = decorationList;
     }
 
-    /**
-     * Search decorations by decoration place
-     *
-     * @param decorationPlaces is places which can be decorated by decorations
-     * @return list with found decorations
-     */
+    public Decoration getDecoration(Integer id) {
+        return decorationDao.findById(id);
+    }
 
-    public final List<Decoration> searchByDecorationPlace(final String decorationPlaces) {
-        List<Decoration> resultList = new LinkedList<>();
-        for (Decoration decoration : decorationList) {
-            if (decoration.getDecorationPlace().equalsIgnoreCase(decorationPlaces)) {
-                resultList.add(decoration);
+    public final void addDecoration(final Decoration newDecoration) {
+        decorationDao.persist(newDecoration);
+    }
+
+    public  void updateDecoration(Decoration newDecoration) {
+        decorationDao.update(newDecoration);
+    }
+
+    public  void deleteDecoration(Integer id) {
+        decorationDao.delete(id);
+    }
+
+    public final Map<Integer, Decoration> searchByDecorationPlace(final String decorationPlaces) {
+        Map<Integer, Decoration> resultList = new HashMap<>();
+        for (Map.Entry<Integer, Decoration> decoration : decorationMap.entrySet()) {
+            if (decoration.getValue().getDecorationPlace().equalsIgnoreCase(decorationPlaces)) {
+                resultList.put(decoration.getValue().getId(), decoration.getValue());
             }
         }
         return resultList;
     }
 
-    /**
-     * Sort decoration by decoration place
-     *
-     * @param resultList is list with found decorations
-     * @return list with found and sorted decorations
-     */
     public final List<Decoration> sortByDecorationPlace(final List<Decoration> resultList) {
         resultList.sort(Comparator.comparing(Decoration::getDecorationPlace));
         return resultList;

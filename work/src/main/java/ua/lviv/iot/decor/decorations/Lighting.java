@@ -13,9 +13,9 @@ public class Lighting extends Decoration {
     private int length;
     private int quantityOfLamps;
 
-    public Lighting(final String decorationPlace, final TypeOfDecorations typeOfDecorations,
+    public Lighting(final Integer id, final String decorationPlace, final TypeOfDecorations typeOfDecorations,
                     final Color color, final int length, final int quantityOfLamps) {
-        super(decorationPlace, TypeOfDecorations.LIGHTING, Color.BLUE);
+        super(id, decorationPlace, TypeOfDecorations.LIGHTING, Color.BLUE);
         this.quantityOfLamps = quantityOfLamps;
         this.length = length;
     }

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class DecorationsWriter {
 
-    public final void writeToFile(final List<Decoration> decorationList) throws IOException {
+    public final void writeToFile(final List<Decoration>decorationList) throws IOException {
         File file = new File("E:\\IdeaProjects\\decoration.csv");
         if (!file.exists()) {
             file.createNewFile();

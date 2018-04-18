@@ -15,9 +15,9 @@ public class Toys extends Decoration {
     private MaterialOfToys materialOfToys;
     private TypeOfToys typeOfToys;
 
-    public Toys(final String decorationPlace, final TypeOfDecorations typeOfDecorations, final Color color,
+    public Toys(final Integer id, final String decorationPlace, final TypeOfDecorations typeOfDecorations, final Color color,
                 final MaterialOfToys materialOfToys, final TypeOfToys typeOfToys) {
-        super(decorationPlace, TypeOfDecorations.TOYS, Color.YELLOW);
+        super(id, decorationPlace, TypeOfDecorations.TOYS, Color.YELLOW);
         this.materialOfToys = materialOfToys;
         this.typeOfToys = typeOfToys;
     }

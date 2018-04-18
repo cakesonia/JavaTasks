@@ -12,10 +12,14 @@ public class Garland extends Decoration {
 
     private int length;
 
-    public Garland(final String decorationPlace, final TypeOfDecorations typeOfDecorations, final Color color,
+    public Garland(final Integer id, final String decorationPlace, final TypeOfDecorations typeOfDecorations, final Color color,
                    final int length) {
-        super(decorationPlace, TypeOfDecorations.GARLAND, Color.RED);
+        super(id, decorationPlace, TypeOfDecorations.GARLAND, Color.RED);
         this.length = length;
+    }
+
+    public final int getLength(){
+        return length;
     }
 
     @Override
